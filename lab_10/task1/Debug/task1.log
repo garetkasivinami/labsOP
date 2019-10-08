@@ -1,0 +1,6 @@
+﻿  task1.cpp
+C:\Users\User\source\repos\lab_10\task1\task1.cpp(138,10): warning C4473:  "scanf_s": передано недостаточно аргументов для строки формата
+C:\Users\User\source\repos\lab_10\task1\task1.cpp(138,10): message :  заполнители и их параметры ожидают переменное число аргументов в количестве 2, но было предоставлено 1
+C:\Users\User\source\repos\lab_10\task1\task1.cpp(138,10): message :  отсутствующий вариативный аргумент "2" требуется для строки форматирования "%c"
+C:\Users\User\source\repos\lab_10\task1\task1.cpp(138,10): message :  этот аргумент используется в качестве размера буфера
+  task1.vcxproj -> C:\Users\User\source\repos\lab_10\Debug\task1.exe
