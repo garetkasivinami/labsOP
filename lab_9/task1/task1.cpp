@@ -116,6 +116,56 @@ void Self2() {
 	int sleeptime;
 	scanf_s("%d",&sleeptime);
 	Sleep(sleeptime);
-	printf_s("\a");
+	/*
+	for (int i = 0; i < 1000; i += 100) {
+		Beep(i, 1000);
+		Sleep(1000);
+	}
+	*/
+	int C = 523; // do - 382
+	int D = 587; // re - 340
+	int E = 659; // mi - 304
+	int F = 698; // fa - 286
+	int G = 740; // sol - 270
+	int A = 880; // la - 228
+	int B = 988; // si - 220
+	Beep(C, 382);
+	Beep(D, 340);
+	Beep(E, 304);
+	Beep(F, 286);
+	Beep(G, 270);
+	Beep(A, 228);
+	Beep(B, 220);
+	//
+	Beep(C, 382);
+	Beep(G, 270);
+	Beep(F, 286);
+	Beep(G, 270);
+	Beep(C, 382);
+	Beep(G, 270);
+	Beep(F, 286);
+	Beep(G, 270);
+	//
+	Beep(C, 382);
+	Beep(A, 228);
+	Beep(F, 286);
+	Beep(G, 270);
+	Beep(C, 382);
+	Beep(G, 270);
+	Beep(F, 286);
+	Beep(G, 270);
+	//
+	Beep(C, 382);
+	Beep(G, 270);
+	Beep(F, 286);
+	Beep(G, 270);
+	Sleep(100);
+	Beep(G, 270);
+	Beep(F, 286);
+	Beep(G, 270);
+	Beep(F, 286);
+	Beep(G, 270);
+	Beep(C, 382);
+	//printf_s("\a");
 }
 #pragma endregion
