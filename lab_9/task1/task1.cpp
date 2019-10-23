@@ -79,9 +79,12 @@ void Task1() {
 void Task2() {
 	int targetNumber;
 	while(1){
-		printf_s("Введіть чотирьох значне число, якщо число менше 1000 - вихід\n");
+		printf_s("Введіть чотирьох значне число, якщо число дорівнює 0 - вихід\n");
 		scanf_s("%d", &targetNumber);
-		if (targetNumber < 1000) {
+		if (targetNumber == 0) {
+			return;
+		}
+		if (targetNumber < 1000 || targetNumber >= 10000) {
 			return;
 		}
 		printf_s("Сума чисел %d, добуток чисел %d\n", (targetNumber / 10) % 10 + (targetNumber / 100) % 10, ((targetNumber / 10) % 10) * ((targetNumber / 100) % 10));
@@ -90,38 +93,40 @@ void Task2() {
 #pragma endregion
 #pragma region Самостійна 1
 void Self1() {
-	int count10 = 0, count5 = 0, number;
-	printf_s("Напишіть 10 чисел\n");
-	for (int i = 0; i < 10; i++) {
-		scanf_s("%d",&number);
-		if (number > 10) {
-			count10++;
-			count5++;
+	while (1) {
+		int count10 = 0, count5 = 0, number;
+		printf_s("Напишіть 10 чисел\n");
+		for (int i = 0; i < 10; i++) {
+			scanf_s("%d", &number);
+			if (number > 10) {
+				count10++;
+				count5++;
+			}
+			else if (number > 5) {
+				count5++;
+			}
 		}
-		else if (number > 5) {
-			count5++;
+		if (count10 > 4) {
+			printf_s("Караул!!!\n");
 		}
-	}
-	if (count10 > 4) {
-		printf_s("Караул!!!\n");
-	}
-	else {
-		printf_s("Кількість чисел більше 10 - %d, кількість чисел більше 5 - %d\n", count10, count5);
+		else {
+			printf_s("Кількість чисел більше 10 - %d, кількість чисел більше 5 - %d\n", count10, count5);
+		}
+		printf_s("0 - вихід, інше число - продовжити роботу");
+		scanf_s("%d", &number);
+		if (number == 0) {
+			break;
+		}
 	}
 }
 #pragma endregion
 #pragma region Самостійна 2
 void Self2() {
-	printf_s("напишіть число таймера(в мілісекундах)\n");
+	printf_s("напишіть число таймера(в секундах)\n");
 	int sleeptime;
+	int numb;
 	scanf_s("%d",&sleeptime);
-	Sleep(sleeptime);
-	/*
-	for (int i = 0; i < 1000; i += 100) {
-		Beep(i, 1000);
-		Sleep(1000);
-	}
-	*/
+	Sleep(sleeptime * 1000);
 	int C = 523; // do - 382
 	int D = 587; // re - 340
 	int E = 659; // mi - 304
@@ -129,43 +134,70 @@ void Self2() {
 	int G = 740; // sol - 270
 	int A = 880; // la - 228
 	int B = 988; // si - 220
-	Beep(C, 382);
-	Beep(D, 340);
-	Beep(E, 304);
-	Beep(F, 286);
-	Beep(G, 270);
-	Beep(A, 228);
-	Beep(B, 220);
-	//
-	Beep(C, 382);
-	Beep(G, 270);
-	Beep(F, 286);
-	Beep(G, 270);
-	Beep(C, 382);
-	Beep(G, 270);
-	Beep(F, 286);
-	Beep(G, 270);
-	//
-	Beep(C, 382);
-	Beep(A, 228);
-	Beep(F, 286);
-	Beep(G, 270);
-	Beep(C, 382);
-	Beep(G, 270);
-	Beep(F, 286);
-	Beep(G, 270);
-	//
-	Beep(C, 382);
-	Beep(G, 270);
-	Beep(F, 286);
-	Beep(G, 270);
-	Sleep(100);
-	Beep(G, 270);
-	Beep(F, 286);
-	Beep(G, 270);
-	Beep(F, 286);
-	Beep(G, 270);
-	Beep(C, 382);
+	printf_s("Оберіть номер пісні.\n 1 - щось з титаніка\n 2 - пародія на чорний бумер\n");
+	scanf_s("%d", &numb);
+	printf_s("*звук*\n");
+	switch (numb)
+	{
+	case 1:
+		Beep(C, 382);
+		Beep(D, 340);
+		Beep(E, 304);
+		Beep(F, 286);
+		Beep(G, 270);
+		Beep(A, 228);
+		Beep(B, 220);
+		//
+		Beep(C, 382);
+		Beep(G, 270);
+		Beep(F, 286);
+		Beep(G, 270);
+		Beep(C, 382);
+		Beep(G, 270);
+		Beep(F, 286);
+		Beep(G, 270);
+		//
+		Beep(C, 382);
+		Beep(A, 228);
+		Beep(F, 286);
+		Beep(G, 270);
+		Beep(C, 382);
+		Beep(G, 270);
+		Beep(F, 286);
+		Beep(G, 270);
+		//
+		Beep(C, 382);
+		Beep(G, 270);
+		Beep(F, 286);
+		Beep(G, 270);
+		Sleep(100);
+		Beep(G, 270);
+		Beep(F, 286);
+		Beep(G, 270);
+		Beep(F, 286);
+		Beep(G, 270);
+		Beep(C, 382);
+		break;
+	case 2:
+		for (int i = 0; i < 4; i++) {
+			Beep(B, 220);
+			Beep(A, 228);
+			Beep(E, 304);
+			Beep(G, 270);
+			Beep(F, 286);
+		}
+		Beep(G, 270);
+		Beep(F, 286);
+		break;
+	default:
+		printf_s("ой, такої пісні нема!\n");
+		break;
+	}
+	printf_s("Повторити концерт? 0 - ні, 1 - так\n");
+	scanf_s("%d", &numb);
+	if (numb == 1) {
+		Task2();
+	}
 	//printf_s("\a");
 }
 #pragma endregion

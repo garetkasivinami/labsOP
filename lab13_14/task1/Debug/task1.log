@@ -1,0 +1,4 @@
+﻿  task1.cpp
+C:\Users\User\source\Labs\lab13_14\task1\task1.cpp(30,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\User\source\Labs\lab13_14\task1\task1.cpp(193,12): warning C4244: /=: преобразование "double" в "int", возможна потеря данных
+  task1.vcxproj -> C:\Users\User\source\Labs\lab13_14\Debug\task1.exe

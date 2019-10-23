@@ -134,8 +134,8 @@ void Self3() {
 #pragma region самостійна 4
 void Self4() {
 	printf_s("Напишіть символ для виведення 'уявної' діагоналі\n");
-	char sumvol;
-	scanf_s(" %c", &sumvol);
+	char sumvol= '♥';
+	//scanf_s(" %c", &sumvol);
 	for (int i = 0; i < 30; i++) {
 		for (int h = 0; h < i * 2; h++) {
 			printf_s(" ");
