@@ -27,6 +27,30 @@ void PrintMatrix(int** massive, int lenghtX, int lenghtY) {
 #pragma region програма
 int main()
 {
+	int lx = 7, ly = 7;
+	int** mass = new int*[7];
+	for (int i = 0; i < 7; i++)
+	{
+		mass[i] = new int[7];
+		for (int h = 0; h < 7; h++) {
+			mass[i][h] = -12 + rand() % (25);
+		}
+	}
+	int summ = 0;
+	for (int y = 0; y < lx; y++) {
+		for (int i = 0; i < ((y > ly / 2) ? ly - y - 1 : y) + 1; i++) {
+			if (i != ly - i - 1) {
+				summ += mass[y][i] = 1;
+				summ += mass[y][ly - i - 1];
+			}
+			else {
+				summ += mass[y][i] = 1;
+			}
+			//printf_s("%d %d %d\n", y , ly - i - 1, summ);
+		}
+	}
+		
+	PrintMatrix(mass,7,7);
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	srand(time(0));

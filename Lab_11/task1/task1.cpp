@@ -162,6 +162,7 @@ void Task3() {
 #pragma endregion
 #pragma region завдання 4
 void Task4() {
+	/*
 	int maxNumber = -2000000000;
 	int lenght = 10;
 	int* X = new int[lenght];
@@ -181,6 +182,55 @@ void Task4() {
 	}
 	printf_s("Z = "); PrintMassive(Z, lenght);
 	printf_s("Максимальний елемент: %d\n", maxNumber);
+	int a, b, n;
+	scanf_s("%d%d",&a,&b);
+	scanf_s("%d", &n);
+	int* mass = new int[n];
+	for (int i = 0; i < n; i++)
+	{
+		mass[i] = a + rand() % (b - a + 1);
+	}
+	int minIndex = 0;
+	for (int i = 1; i < n; i++) {
+		if (abs(mass[i]) < abs(mass[minIndex])) {
+			minIndex = i;
+		}
+	}
+	printf("мінімальний індекс %d\n", minIndex);
+	int summ = 0;
+	int i = 0;
+	for (; i < n; i++)
+	{
+		if (mass[i] < 0) {
+			break;
+		}
+	}
+	i++;
+	if (i < n - 1) {
+		for (; i < n; i++)
+		{
+			summ += abs(mass[i]);
+		}
+		printf("сума елементів %d\n", summ);
+	}
+	else {
+		printf("немає відємних елементів %d\n", summ);
+	}
+	*/
+	int s[12], min = 0, max = 0;
+	for (int i = 0; i < 12; i++) {
+		s[i] = rand() % 50;
+		if (s[i] < s[min])
+		{
+			min = i;
+		}
+		if (s[i] > s[max]) {
+			max = i;
+		}
+	}
+	int temp = s[min];
+	s[min] = s[max];
+	s[max] = temp;
 }
 #pragma endregion
 #pragma region інше
