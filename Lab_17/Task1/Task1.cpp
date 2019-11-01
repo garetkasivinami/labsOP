@@ -27,12 +27,14 @@ void uPrintMatrix(unsigned int** massive, int lenghtX, int lenghtY) {
 		printf_s("\n");
 	}
 }
+void check();
 #pragma endregion
 #pragma region програма
 int main() {
 	srand(time(NULL));
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
+	check();
 	int number;
 	while (1) {
 		printf_s("Оберіть режим роботи програми:\n 1 - завдання 1\n 2 - завдання 2\n 3 - завдання 3\n 0 - вихід\n");
@@ -168,7 +170,47 @@ int* MethodTwo(int* massive, int size, int k) {
 		temp[(i + k) % size] = massive[i];
 	}
 	free(massive);
-	return temp;
+	int a = 5, b = 3;
+	(a > b) ? a -= 2, b *= 2: a*=2, b -= 2;
+
+	int x = 2, y = 2;
+	if (x > 0) {
+		if (y >= 0 && y <= 1 - x) {
+			printf_s("1");
+
+		}
+		else {
+			printf_s("0");
+
+		}
+	}
+	else if (x < 0) {
+		if (y <= 0 && y <= x + 1 || y > -x + 1) {
+			printf_s("1");
+
+		}
+		else {
+			printf_s("0");
+
+		}
+	}
+	else {// x == 0
+		printf_s("1");
+	}
+	//int arr[100], temp[100], SIZE, coef;
+	//scanf_s("%d", &SIZE); // розмір масива
+	//scanf_s("%d", &coef); // коефіцієнт зміщення
+	//for (int i = 0; i < SIZE; i++) {
+	//	arr[i] = rand() % 51 - 25;
+	//}
+	//coef = (coef >= 0)? coef % SIZE: SIZE - (-coef % SIZE);
+	//for (int i = 0; i < SIZE; i++) {
+	//	temp[(i + coef) % SIZE] = arr[i];
+	//}
+	//for (int i = 0; i < SIZE; i++) {
+	//	arr[i] = temp[i];
+	//}
+	return massive;
 }
 void Task2() {
 	int sizeX = rand() % 4 + 3, sizeY = rand() % 4 + 3;
@@ -217,3 +259,76 @@ void Task3() {
 	uPrintMatrix(matrix, 7, 9);
 }
 #pragma endregion
+#pragma region перевірка
+void check() {
+	int sizef = 8, hsizef = sizef / 2;
+	int sizes = 8, hsizes = sizef / 2;
+	int summ = 0;
+	int** mass = new int*[sizef];
+	for (int i = 0; i < sizef; i++) {
+		mass[i] = new int[sizes];
+		for (int j = 0; j < sizes; j++) {
+			mass[i][j] = -10 + rand() % 21;
+		}
+	}
+	PrintMatrix(mass,sizef,sizes);
+	for (int i = 0; i < hsizef; i++) {
+		for (int j = 0; j < i + 1; j++) {
+			summ += mass[i][j];
+			summ += mass[sizef - i - 1][j];
+			summ += mass[i + hsizef][j + hsizes];
+		}
+	}
+	printf_s("%d\n", summ);
+	/*ПЕРЕВІРКА ПРАВИЛЬНОСТІ АЛГОРИТМУ*/
+	printf_s("Перевірка правильності алгориму\n");
+	for (int i = 0; i < sizef; i++) {
+		for (int j = 0; j < sizes; j++) {
+			mass[i][j] = 0;
+		}
+	}
+	for (int i = 0; i < hsizef; i++) {
+		for (int j = 0; j < i + 1; j++) {
+			mass[i][j] = 1;
+			mass[sizef - i - 1][j] = 1;
+			mass[i + hsizef][j + hsizes] = 1;
+		}
+	}
+	for (int i = 0; i < sizef; i++) {
+		for (int j = 0; j < sizes; j++) {
+			printf_s("%2d",mass[i][j]);
+		}
+		printf_s("\n");
+	}
+}
+/*
+#pragma endregion
+void SanyaHelp() {
+	int mass[5][5];
+	int minIndex = 0, min, maxIndex = 0, max, temp = 0;
+	for (int i = 0; i < 5; i++) {
+		temp += mass[i][0];
+	}
+	min = temp;
+	max = temp;
+	for (int j = 1; j < 5; j++) {
+		temp = 0;
+		for (int i = 0; i < 5; i++) {
+			temp += mass[i][j];
+		}
+		if (temp < min) {
+			min = temp;
+			minIndex = j;
+		}
+		if (temp > max) {
+			max = temp;
+			maxIndex = j;
+		}
+	}
+	for (int j = 0; j < 5; j++) {
+		temp = mass[j][minIndex];
+		mass[j][minIndex] = mass[j][maxIndex];
+		mass[j][maxIndex] = temp;
+	}
+}
+*/
