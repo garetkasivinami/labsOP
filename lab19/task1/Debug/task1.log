@@ -1,0 +1,23 @@
+﻿  task1.cpp
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(68,15): warning C4244: инициализация: преобразование "int" в "float", возможна потеря данных
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(71,25): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(77,10): warning C4473: "scanf_s": передано недостаточно аргументов для строки формата
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(77,10): message : заполнители и их параметры ожидают переменное число аргументов в количестве 2, но было предоставлено 1
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(77,10): message : отсутствующий вариативный аргумент "2" требуется для строки форматирования "%c"
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(77,10): message : этот аргумент используется в качестве размера буфера
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(110,21): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(147,12): warning C4244: /=: преобразование "double" в "int", возможна потеря данных
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(258,125): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(258,123): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(258,121): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(258,11): warning C4477: "printf_s": в строке форматирования "%d" требуется аргумент типа "int", но вариативный аргумент "2" имеет тип "double"
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(470,43): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(470,53): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(535,21): warning C4101: yb: неиспользованная локальная переменная
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(535,17): warning C4101: xb: неиспользованная локальная переменная
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(535,29): warning C4101: yc: неиспользованная локальная переменная
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(535,13): warning C4101: ya: неиспользованная локальная переменная
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(535,9): warning C4101: xa: неиспользованная локальная переменная
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(535,25): warning C4101: xc: неиспользованная локальная переменная
+C:\Users\User\source\Labs\lab19\task1\task1.cpp(541,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  task1.vcxproj -> C:\Users\User\source\Labs\lab19\Debug\task1.exe

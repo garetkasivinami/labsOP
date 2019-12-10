@@ -1,0 +1,3 @@
+﻿  LectionHelp.cpp
+C:\Users\User\source\Labs\lab19\LectionHelp\LectionHelp.cpp(23,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  LectionHelp.vcxproj -> C:\Users\User\source\Labs\lab19\Debug\LectionHelp.exe

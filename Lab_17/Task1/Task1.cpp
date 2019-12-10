@@ -27,14 +27,31 @@ void uPrintMatrix(unsigned int** massive, int lenghtX, int lenghtY) {
 		printf_s("\n");
 	}
 }
+void ChooseMethotMatrix(int** mass, int sizeX, int sizeY);
+void pasteMethotMatrix(int** mass, int sizeX, int sizeY);
 void check();
+void Trololo();
+void Chtoto();
 #pragma endregion
 #pragma region програма
+void MPasteMethotMatrix();
+void MChooseMethotMatrix();
 int main() {
 	srand(time(NULL));
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	check();
+	Chtoto();
+	return 0;
+	unsigned int** matrix = new unsigned int* [10];
+	for (int i = 0; i < 10; i++) {
+		matrix[i] = new unsigned int[10];
+		for (int g = 0; g < 10; g++) {
+			matrix[i][g] = rand() % 201;
+		}
+	}
+	MChooseMethotMatrix();
+	printf_s("\n");
+	return 0;
 	int number;
 	while (1) {
 		printf_s("Оберіть режим роботи програми:\n 1 - завдання 1\n 2 - завдання 2\n 3 - завдання 3\n 0 - вихід\n");
@@ -97,6 +114,24 @@ void upasteMethotMatrix(unsigned int** mass, int sizeX, int sizeY) {
 	}
 }
 
+void uBoobleMethotMatrix(int** mass, int sizeX, int sizeY) {
+	int flag = 1, ti, tj;
+	while (flag)
+	{
+		int j = 1;
+		flag = 0;
+		for (int i = 0; i < sizeX; i++) {
+			for (i; j < sizeY; j++) {
+				tj = (j == 0) ? (ti = i - 1, sizeY - 1) : (ti = i, j - 1);
+				if (mass[i][j] > mass[ti][tj]) {
+					swap(mass[i][j], mass[ti][tj]);
+					flag = 1;
+				}
+			}
+			j = 0;
+		}
+	}
+}
 void uswap(unsigned int& a, unsigned int& b) {
 	unsigned int temp = a;
 	a = b;
@@ -170,47 +205,7 @@ int* MethodTwo(int* massive, int size, int k) {
 		temp[(i + k) % size] = massive[i];
 	}
 	free(massive);
-	int a = 5, b = 3;
-	(a > b) ? a -= 2, b *= 2: a*=2, b -= 2;
-
-	int x = 2, y = 2;
-	if (x > 0) {
-		if (y >= 0 && y <= 1 - x) {
-			printf_s("1");
-
-		}
-		else {
-			printf_s("0");
-
-		}
-	}
-	else if (x < 0) {
-		if (y <= 0 && y <= x + 1 || y > -x + 1) {
-			printf_s("1");
-
-		}
-		else {
-			printf_s("0");
-
-		}
-	}
-	else {// x == 0
-		printf_s("1");
-	}
-	//int arr[100], temp[100], SIZE, coef;
-	//scanf_s("%d", &SIZE); // розмір масива
-	//scanf_s("%d", &coef); // коефіцієнт зміщення
-	//for (int i = 0; i < SIZE; i++) {
-	//	arr[i] = rand() % 51 - 25;
-	//}
-	//coef = (coef >= 0)? coef % SIZE: SIZE - (-coef % SIZE);
-	//for (int i = 0; i < SIZE; i++) {
-	//	temp[(i + coef) % SIZE] = arr[i];
-	//}
-	//for (int i = 0; i < SIZE; i++) {
-	//	arr[i] = temp[i];
-	//}
-	return massive;
+	return temp;
 }
 void Task2() {
 	int sizeX = rand() % 4 + 3, sizeY = rand() % 4 + 3;
@@ -332,3 +327,189 @@ void SanyaHelp() {
 	}
 }
 */
+
+// сортування
+void pasteMethotMatrix(int** mass, int sizeX, int sizeY) {
+	int y = sizeY - 2;
+	for (int x = sizeX - 1; x >= 0; x--) {
+		for (; y >= 0; y--) {
+			int dy = y + 1;
+			int dx = (dy == sizeY) ? (dy = 0, x + 1): x;
+			for (; dx < sizeX; dx++) {
+				int* link;
+				for (; dy < sizeY && (link = &((dy - 1 == -1)? mass[dx - 1][sizeY - 1]:mass[dx][dy - 1]), mass[dx][dy] < *link); dy++) {
+					swap(mass[dx][dy], *link);
+				}
+				dy = 0;
+			}
+		}
+		y = sizeY - 1;
+	}
+}
+void ChooseMethotMatrix(int** mass, int sizeX, int sizeY) {
+	int y = sizeY - 1;
+	for (int x = sizeX - 1; x >= 0; x--) {
+		for (; y >= 0; y--) {
+			int maxX = x, maxY = y;
+			int dy = y;
+			for (int dx = x; dx >= 0; dx--) {
+				for (; dy >= 0; dy--) {
+					if (mass[dx][dy] > mass[maxX][maxY]) {
+						maxX = dx;
+						maxY = dy;
+					}
+				}
+				dy = sizeY - 1;
+			}
+			swap(mass[maxX][maxY],mass[x][y]);
+		}
+		y = sizeY - 1;
+	}
+}
+
+void Trololo(){
+	const int sizeX = 3, sizeY = 3;
+	int matrix[sizeX][sizeY];
+	for (int i = 0; i < sizeX; i++) {
+		for (int y = 0; y < sizeY; y++) {
+			matrix[i][y] = rand() % 4;
+			printf_s("%2d", matrix[i][y]);
+		}
+		printf_s("\n");
+	}
+	for (int i = 0; i < sizeX; i++) {
+		for (int j = 0; j < sizeY; j++) {
+			if (matrix[i][j] == matrix[j][i]) {
+				if (j == sizeY - 1) {
+					printf_s("k = %d\n", i);
+				}
+			}
+			else {
+				break;
+			}
+		}
+	}
+}
+void MSwap(unsigned int& a, unsigned int& b) {
+	unsigned int temp = a;
+	a = b;
+	b = temp;
+}
+void MPasteMethotMatrix() {
+	const int sizeX = 9, sizeY = 9;
+	unsigned int mass[sizeX][sizeY];
+	for (int i = 0; i < sizeX; i++) {
+		for (int y = 0; y < sizeY; y++) {
+			mass[i][y] = rand() % 201;
+			printf_s("%4d", mass[i][y]);
+		}
+		printf_s("\n");
+	}
+	int y = sizeY - 2;
+	for (int x = sizeX - 1; x >= 0; x--) {
+		for (; y >= 0; y--) {
+			int dy = y + 1;
+			int dx;
+			if (dy == sizeY) {
+				dy = 0;
+				dx = x + 1;
+			}
+			else {
+				dx = x;
+			}
+			for (; dx < sizeX; dx++) {
+				int iX;
+				int iY;
+				for (;dy < sizeY; dy++) {
+					if (dy - 1 == -1) {
+						iX = dx - 1;
+						iY = sizeY - 1;
+					}
+					else {
+						iX = dx;
+						iY = dy - 1;
+					}
+					if (mass[dx][dy] <= mass[iX][iY]) {
+						break;
+					}
+					MSwap(mass[dx][dy], mass[iX][iY]);
+				}
+				dy = 0;
+			}
+		}
+		y = sizeY - 1;
+	}
+	printf_s("Result:\n");
+	for (int i = 0; i < sizeX; i++) {
+		for (int y = 0; y < sizeY; y++) {
+			printf_s("%4d", mass[i][y]);
+		}
+		printf_s("\n");
+	}
+}
+void MChooseMethotMatrix() {
+	const int sizeX = 9, sizeY = 9;
+	unsigned int mass[sizeX][sizeY];
+	for (int i = 0; i < sizeX; i++) {
+		for (int y = 0; y < sizeY; y++) {
+			mass[i][y] = rand() % 201;
+			printf_s("%4d", mass[i][y]);
+		}
+		printf_s("\n");
+	}
+	int y = sizeY - 1;
+	for (int x = sizeX - 1; x >= 0; x--) {
+		for (; y >= 0; y--) {
+			int maxX = x, maxY = y;
+			int dy = y;
+			for (int dx = x; dx >= 0; dx--) {
+				for (; dy >= 0; dy--) {
+					if (mass[dx][dy] < mass[maxX][maxY]) {
+						maxX = dx;
+						maxY = dy;
+					}
+				}
+				dy = sizeY - 1;
+			}
+			MSwap(mass[maxX][maxY], mass[x][y]);
+		}
+		y = sizeY - 1;
+	}
+	printf_s("Result:\n");
+	for (int i = 0; i < sizeX; i++) {
+		for (int y = 0; y < sizeY; y++) {
+			printf_s("%4d", mass[i][y]);
+		}
+		printf_s("\n");
+	}
+}
+
+void Chtoto() {
+	const int sizeX = 5, sizeY = 5;
+	int arr[5][5];
+	for (int i = 0; i < sizeX; i++) {
+		for (int y = 0; y < sizeY; y++) {
+			arr[i][y] = rand() % 51 - 25;
+			printf_s("%4d", arr[i][y]);
+		}
+		printf_s("\n");
+	}
+	printf_s("*work*\n");
+	for (int i = 1; i < sizeY; i += 2) {
+		int coef = 0;
+		for (int h = 0; h < sizeX; h++) {
+			if (arr[h][i] < 0) {
+				for (int j = h; j > coef; j--) {
+					swap(arr[j][i], arr[j - 1][i]);
+				}
+				coef++;
+			}
+		}
+	}
+	for (int i = 0; i < sizeX; i++) {
+		for (int y = 0; y < sizeY; y++) {
+			printf_s("%4d", arr[i][y]);
+		}
+		printf_s("\n");
+	}
+}
